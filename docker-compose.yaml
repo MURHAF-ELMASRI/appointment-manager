@@ -1,0 +1,16 @@
+version: '3.3' # Specify a Docker Compose file version
+services:
+  appointment-manager-db:
+    image: postgres
+    restart: always
+    container_name: appointment-manager-db
+    environment:
+      POSTGRES_PASSWORD: mypassword 
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - '5432:5432'
+    volumes: 
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
