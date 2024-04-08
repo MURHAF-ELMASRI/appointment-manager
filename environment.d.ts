@@ -2,6 +2,8 @@ declare global {
     namespace NodeJS {
       interface ProcessEnv {
         DATABASE_URL:string
+        EMAIL_FROM:string
+        EMAIL_SERVER:string
       }
     }
   }
