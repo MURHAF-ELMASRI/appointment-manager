@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import { Link } from "@/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,14 +11,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useTranslations } from "next-intl";
 
-export default function LoginForm({ noAccount }: { noAccount: () => void }) {
-  const t = useTranslations("Index");
+export default function LoginForm() {
+  const t = useTranslations("auth");
 
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
-        <CardDescription>{t("title")}</CardDescription>
+        <CardDescription>{t("login_subTitle")}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
@@ -50,7 +49,7 @@ export default function LoginForm({ noAccount }: { noAccount: () => void }) {
         </div>
         <div className="mt-4 text-center text-sm">
           Don&apos;t have an account?{" "}
-          <Link onClick={noAccount} href="#" className="underline">
+          <Link href="/register" className="underline">
             Sign up
           </Link>
         </div>

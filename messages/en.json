@@ -1,5 +1,5 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "auth": {
+    "login_subTitle": "Enter your email below to login to your account"
   }
 }

@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import { Link } from "@/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export default function SignupForm({ hasAccount }: { hasAccount: () => void }) {
+export default function SignupForm() {
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
@@ -51,7 +50,7 @@ export default function SignupForm({ hasAccount }: { hasAccount: () => void }) {
         </div>
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}
-          <Link href="#" onClick={hasAccount} className="underline">
+          <Link href="/login" className="underline">
             Sign in
           </Link>
         </div>
