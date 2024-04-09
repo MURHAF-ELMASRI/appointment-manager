@@ -1,19 +1,33 @@
 "use client";
 import { SessionProvider } from "next-auth/react";
+import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
-export function Providers({ children }: { children: React.ReactNode }) {
-  
+export async function Providers({
+  children,
+  locale,
+}: {
+  children: React.ReactNode;
+  locale: string;
+}) {
+  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const timeZone = "Europe/Vienna";
   return (
     <SessionProvider>
-      <NextThemesProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
+      <NextIntlClientProvider
+        timeZone={timeZone}
+        messages={messages}
+        locale={locale}
       >
-        {children}
-      </NextThemesProvider>
+        <NextThemesProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </NextThemesProvider>
+      </NextIntlClientProvider>
     </SessionProvider>
   );
 }

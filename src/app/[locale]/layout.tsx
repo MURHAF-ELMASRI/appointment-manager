@@ -35,7 +35,7 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          <Providers>{children}</Providers>
+          <Providers locale={locale}>{children}</Providers>
         </body>
       </html>
     </>
